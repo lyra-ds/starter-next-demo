@@ -6,6 +6,9 @@ import { Badge, Button, Card, Icon, IconButton, useTheme } from '@lyra-ds/react'
 type Theme = 'light' | 'dark'
 type Brand = 'lyra' | 'atlas' | 'moss'
 
+// Empty in dev, '/starter-next-demo' on GitHub Pages (see next.config.ts).
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ''
+
 const brands: Array<{ value: Brand; label: string }> = [
   { value: 'lyra', label: 'Lyra' },
   { value: 'atlas', label: 'Atlas' },
@@ -28,11 +31,17 @@ export function StarterHome() {
       <header className="home__hero">
         {/* The mark swaps with the theme, same pattern as the DS Brand component. */}
         {/* eslint-disable-next-line @next/next/no-img-element -- static theme-swapped SVG marks, next/image adds nothing */}
-        <img className="home__mark" src="/lyra-mark.svg" alt="" width={72} height={72} />
+        <img
+          className="home__mark"
+          src={`${basePath}/lyra-mark.svg`}
+          alt=""
+          width={72}
+          height={72}
+        />
         {/* eslint-disable-next-line @next/next/no-img-element -- static theme-swapped SVG marks, next/image adds nothing */}
         <img
           className="home__mark home__mark--dark"
-          src="/lyra-mark-light.svg"
+          src={`${basePath}/lyra-mark-light.svg`}
           alt=""
           width={72}
           height={72}
