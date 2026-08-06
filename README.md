@@ -46,6 +46,9 @@ them:
 ```
 
 See `app/brand.css` for the two example brands the demo switches between.
+The demo's "Lyra" option is the baseline look: it removes `data-brand`
+entirely — never set the attribute without defining `--brand`, or the
+derived accent group resolves to nothing.
 
 ## Scripts
 
@@ -59,6 +62,19 @@ See `app/brand.css` for the two example brands the demo switches between.
 | `pnpm format:check` | Prettier check (used in CI) |
 
 CI runs lint, format check, tests, and build on every push and PR.
+
+## Deploy
+
+This demo is deployed to GitHub Pages by
+[`.github/workflows/deploy.yml`](./.github/workflows/deploy.yml) on every
+push to `main`. Pages serves static files only, so the workflow builds
+with `GITHUB_PAGES=true`, which turns on `output: 'export'` and the
+`basePath` in `next.config.ts` and publishes `out/`.
+
+The flag keeps those settings out of local dev, which still serves from
+the root. To deploy your own fork: set the `basePath` to your repository
+name (or drop it for a custom domain), then enable _Settings → Pages →
+Source: GitHub Actions_.
 
 ## AI agents
 

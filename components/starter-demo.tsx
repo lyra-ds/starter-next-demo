@@ -21,7 +21,7 @@ function ThemeToggle() {
         <strong>Appearance</strong>
         <p>Choose a theme or follow your system preference.</p>
       </div>
-      <div role="group" aria-label="Theme preference">
+      <div role="group" aria-label="Theme preference" className="button-group">
         {(['light', 'dark', 'system'] as Theme[]).map((option) => (
           <Button
             key={option}
@@ -42,7 +42,9 @@ export function StarterDemo() {
   const [brand, setBrand] = useState<Brand>('lyra')
 
   return (
-    <main data-brand={brand}>
+    // Lyra is the baseline look: the [data-brand] contract requires --brand tokens,
+    // so the attribute is only set for the white-label brands defined in brand.css.
+    <main data-brand={brand === 'lyra' ? undefined : brand}>
       <Container>
         <Stack>
           <header>
@@ -76,7 +78,7 @@ export function StarterDemo() {
               <div>
                 <strong>Brand</strong>
                 <p>Only four brand tokens change; the rest of the system derives from them.</p>
-                <div role="group" aria-label="Brand">
+                <div role="group" aria-label="Brand" className="button-group">
                   {brands.map((option) => (
                     <Button
                       key={option.value}
@@ -90,7 +92,7 @@ export function StarterDemo() {
                 </div>
               </div>
 
-              <div>
+              <div role="group" aria-label="Actions" className="button-group">
                 <Button type="button" variant="primary">
                   Save changes
                 </Button>
