@@ -5,6 +5,8 @@ A minimal [Next.js](https://nextjs.org) template for
 and React packages, local fonts, theme selection (light / dark / system),
 live white-label branding, and ready-to-go lint, test, and CI setup.
 
+**[See the live demo →](https://lyra-ds.github.io/starter-next-demo/)**
+
 ## Create your project
 
 Click **Use this template** on GitHub, or:
